@@ -1,23 +1,53 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import EditableTimer from './components/EditableTimer'
+import ToggleableTimeForm from './components/ToggleableTimeForm'
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+      <View style={styles.appContainer}>
+        <View style={styles.titleContainer}>
+        <Text style={styles.title}>Timers</Text>
+        </View>
+        <ScrollView style={styles.timerList}>
+          <ToggleableTimeForm isOpen={false} />
+          <EditableTimer
+            id="1"
+            title="Mow the lawn"
+            project="house Chors"
+            elapsed="8938442"
+            isRunning
+            />
+            <EditableTimer 
+              id="2"
+              title="Bake sqash"
+              project="Kitchen Chores"
+              elapsed="342424242"
+              editFormOpen
+            />
+            </ScrollView>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    titleContainer: {
+      paddingTop: 35,
+      paddingBotton: 15,
+      borderBottomWidth: 1,
+      borderBottomColor: '#D6D7DA'
+    },
+    title: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      textAlign: 'center'
+    },
+    timerList: {
+      paddingBottom: 15
+    }
   },
 });
