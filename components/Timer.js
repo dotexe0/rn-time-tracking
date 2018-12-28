@@ -9,7 +9,7 @@ export default function Timer({ title, project, elapsed }) {
 
   return (
     <View>
-      <Text style={StyleSheet.title}>{title}</Text>&gt;
+      <Text style={StyleSheet.title}>{title}</Text>
       <Text>{project}</Text>
       <Text style={StyleSheet.elapsedTime}>{elapsedString}</Text>
       <View style={StyleSheet.buttonGroup}>

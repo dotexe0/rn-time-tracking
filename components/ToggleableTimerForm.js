@@ -12,7 +12,7 @@ export default function ToggleableTimerForm({ isOpen }) {
   );
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     paddingVertical: 10
   },

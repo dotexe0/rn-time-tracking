@@ -8,9 +8,9 @@ export default function TimerButton({ color, title, small, onPress}) {
       onPress={onPress}
     >
       <Text
-        style={[styles.buttonText, small ? styles.small : styles.large]}
+        style={[styles.buttonText, small ? styles.small : styles.large, { color }]}
       >
-        {color}
+        {title}
       </Text>
     </TouchableOpacity>
   )

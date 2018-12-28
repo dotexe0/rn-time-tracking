@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import EditableTimer from './components/EditableTimer'
-import ToggleableTimeForm from './components/ToggleableTimerForm'
+import React, { Component } from "react";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
+import EditableTimer from "./components/EditableTimer";
+import ToggleableTimeForm from "./components/ToggleableTimerForm";
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.appContainer}>
         <View style={styles.titleContainer}>
-        <Text style={styles.title}>Timers</Text>
+          <Text style={styles.title}>Timers</Text>
         </View>
         <ScrollView style={styles.timerList}>
           <ToggleableTimeForm isOpen={false} />
@@ -18,15 +18,15 @@ export default class App extends Component {
             project="house Chors"
             elapsed="8938442"
             isRunning
-            />
-            <EditableTimer 
-              id="2"
-              title="Bake sqash"
-              project="Kitchen Chores"
-              elapsed="342424242"
-              editFormOpen
-            />
-            </ScrollView>
+          />
+          <EditableTimer
+            id="2"
+            title="Bake sqash"
+            project="Kitchen Chores"
+            elapsed="342424242"
+            editFormOpen
+          />
+        </ScrollView>
       </View>
     );
   }
@@ -35,19 +35,19 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1
-    },
-    titleContainer: {
-      paddingTop: 35,
-      paddingBotton: 15,
-      borderBottomWidth: 1,
-      borderBottomColor: '#D6D7DA'
-    },
-    title: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      textAlign: 'center'
-    },
-    timerList: {
-      paddingBottom: 15
-    }
-  })
+  },
+  titleContainer: {
+    paddingTop: 35,
+    paddingBottom: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#D6D7DA"
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  timerList: {
+    paddingBottom: 15
+  }
+});
