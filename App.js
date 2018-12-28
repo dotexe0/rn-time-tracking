@@ -45,6 +45,13 @@ export default class App extends Component {
     })
   }
 
+  handleDeleteTimer = timerId => {
+    console.log('xx', timerId)
+        this.setState({
+      timers: this.state.timers.filter(timer => timer.id !== timerId)
+    })
+  }
+
   render() {
     const { timers } = this.state;
     return (
@@ -63,6 +70,7 @@ export default class App extends Component {
               elapsed={elapsed}
               isRunning={isRunning}
               onFormSubmit={this.handleFormSubmit}
+              onRemovePress={this.handleDeleteTimer}
             />
           ))}
         </ScrollView>
