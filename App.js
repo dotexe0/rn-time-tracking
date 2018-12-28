@@ -25,6 +25,28 @@ export default class App extends Component {
     ]
   };
 
+  componentDidMount() {
+    const ONE_SECOND = 1000;
+    this.intervalId = setInterval(() => {
+      const { timers } = this.state;
+
+      this.setState({
+        timers: timers.map(timer => {
+          const { elapsed, isRunning } = timer;
+
+          return {
+            ...timer,
+            elapsed: isRunning ? elapsed + ONE_SECOND : elapsed
+          };
+        })
+      });
+    }, ONE_SECOND);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+  }
+
   handleCreateFormSubmit = timer => {
     const { timers } = this.state;
     this.setState({ timers: [newTimer(timer), ...timers] });
@@ -35,21 +57,41 @@ export default class App extends Component {
     this.setState({
       timers: timers.map(timer => {
         if (timer.id === formData.id) {
-          const { title, project } = formData
+          const { title, project } = formData;
           return {
-            ...timer, title, project
-          }
+            ...timer,
+            title,
+            project
+          };
         }
-        return timer
+        return timer;
       })
-    })
-  }
+    });
+  };
 
   handleDeleteTimer = timerId => {
-        this.setState({
+    this.setState({
       timers: this.state.timers.filter(timer => timer.id !== timerId)
-    })
-  }
+    });
+  };
+
+  toggleTimer = timerId => {
+    this.setState(prevState => {
+      const { timers } = prevState;
+      return {
+        timers: timers.map(timer => {
+          const { id, isRunning } = timer;
+          if (id === timerId) {
+            return {
+              ...timer,
+              isRunning: !isRunning
+            };
+          }
+          return timer;
+        })
+      };
+    });
+  };
 
   render() {
     const { timers } = this.state;
@@ -70,6 +112,8 @@ export default class App extends Component {
               isRunning={isRunning}
               onFormSubmit={this.handleFormSubmit}
               onRemovePress={this.handleDeleteTimer}
+              onStartPress={this.toggleTimer}
+              onStopPress={this.toggleTimer}
             />
           ))}
         </ScrollView>
