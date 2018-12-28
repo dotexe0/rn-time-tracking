@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import EditableTimer from './components/EditableTimer'
-import ToggleableTimeForm from './components/ToggleableTimeForm'
+import ToggleableTimeForm from './components/ToggleableTimerForm'
 
 export default class App extends Component {
   render() {
@@ -34,7 +34,8 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   appContainer: {
-    flex: 1,
+    flex: 1
+    },
     titleContainer: {
       paddingTop: 35,
       paddingBotton: 15,
@@ -49,5 +50,4 @@ const styles = StyleSheet.create({
     timerList: {
       paddingBottom: 15
     }
-  },
-});
+  })

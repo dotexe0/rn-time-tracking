@@ -1,5 +1,5 @@
 import React from 'react'
-import { Stylesheet, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 export default function TimerButton({ color, title, small, onPress}) {
   return (
