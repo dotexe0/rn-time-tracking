@@ -16,12 +16,6 @@ export default class EditableTimer extends Component {
     this.closeForm();
   };
 
-  handleRemovePress = item => {
-    console.log('xxxxx', item)
-    const { onDeleteTimer } = this.props;
-    onDeleteTimer(item)
-  }
-
   handleSubmit = timer => {
     const { onFormSubmit } = this.props;
     onFormSubmit(timer);
