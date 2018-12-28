@@ -8,11 +8,11 @@ export default function Timer({ title, project, elapsed }) {
   const elapsedString = millisecondsToHuman(elapsed);
 
   return (
-    <View>
-      <Text style={StyleSheet.title}>{title}</Text>
+    <View style={styles.timerContainer}>
+      <Text style={styles.title}>{title}</Text>
       <Text>{project}</Text>
-      <Text style={StyleSheet.elapsedTime}>{elapsedString}</Text>
-      <View style={StyleSheet.buttonGroup}>
+      <Text style={styles.elapsedTime}>{elapsedString}</Text>
+      <View style={styles.buttonGroup}>
         <TimerButton color="blue" small title="Edit" />
         <TimerButton color="blue" small title="Remove" />
       </View>
